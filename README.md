@@ -30,7 +30,25 @@ npx shadcn@latest add button
 
 ...or whatever component you need...
 
-7. Deploy to Vercel:
+7. Before depploying to vercel you might want to disable errors which could appear through linting errors, for that add to `next.config.js` the following:
+
+```javascript
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
+};
+
+export default nextConfig;
+```
+
+8. Deploy to Vercel:
 
 ```bash
 vercel
